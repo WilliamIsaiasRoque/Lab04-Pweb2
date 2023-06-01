@@ -24,9 +24,11 @@ class Picture:
     return horizontal
 
   def negative(self):
+    """ Devuelve un negativo de la imagen """
     negative = []
-    ##for value in self.img:
-    ##   negative._invColor(BLACK[])
+    for value in self.img:
+      value_n = [self._invColor(color) for color in value]
+      negative.append(value_n)
     return negative
 
   def join(self, p):
