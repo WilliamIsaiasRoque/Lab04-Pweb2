@@ -32,27 +32,37 @@ class Picture:
     return negative
 
   def join(self, p):
-    join = []
     """ Devuelve una nueva figura poniendo la figura del argumento 
         al lado derecho de la figura actual """
-    return join
-
+    joinRslt = []
+    i = 0
+    while i<len(self.img):
+      joinRslt.append(self.img[i]+p.img[i])
+      i+=1
+    return Picture(joinRslt)
+    
   def up(self, p):
-    return Picture(None)
+    """ Devuelve una nueva figura poniendo la figura p bajo la figura actual """
+    new_img = p.img + self.img
+    return Picture(new_img)
 
   def under(self, p):
     """ Devuelve una nueva figura poniendo la figura p sobre la
         figura actual """
-    return Picture(None)
+    new_img = self.img + p.img
+    return Picture(new_img)
   
   def horizontalRepeat(self, n):
     """ Devuelve una nueva figura repitiendo la figura actual al costado
         la cantidad de veces que indique el valor de n """
-    return Picture(None)
+    repeated_img = [pixel for pixel in self.img for _ in range(n)]
+    return Picture(repeated_img)
 
   def verticalRepeat(self, n):
-    
-    return Picture(None)
+    """ Devuelve una nueva figura repitiendo la figura actual hacia abajo
+        la cantidad de veces que indique el valor de n"""
+    repeated_img = self.img * n
+    return Picture(repeated_img)
 
   #Extra: Sólo para realmente viciosos 
   def rotate(self):
