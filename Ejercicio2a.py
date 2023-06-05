@@ -4,20 +4,10 @@ from chessPictures import *
 horse=knight
 horseblack=horse.negative()
 horsewhite=horseblack.negative()
+horse4=horseblack.join(horsewhite).up((horsewhite).join(horseblack))
 
-draw(horsewhite.join(horseblack).under(horseblack.join(horsewhite)))
+draw(horse4)
 
-
-"""
-horse = knight
-blackHorse = horse.negative()
-horses = horse.join(blackHorse)
-draw(horses)
-"""
-"""
-horses3 = horse.join(horses)
-horses4 = horse.join(horses3)
-draw(horses4) """
 
 
 
