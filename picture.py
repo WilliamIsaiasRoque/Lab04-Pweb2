@@ -15,16 +15,16 @@ class Picture:
     """ Devuelve el espejo vertical de la imagen """
     vertical = self.img[::-1]
     return Picture(vertical)
-
+  
   def horizontalMirror(self):
     """ Devuelve el espejo horizontal de la imagen """
     horizontal = []
     for value in self.img:
-    	horizontal.append(value[::-1])
+      horizontal.append(value[::-1])
     return Picture(horizontal)
-  
+
   def negative(self):
-    """ Devuelve un negativo de la imagen """
+    """Devuelve un negativo de la imagen"""
     neg_img = []
     for row in self.img:
       neg_row = [self._invColor(pixel) for pixel in row]
@@ -42,15 +42,15 @@ class Picture:
     return Picture(joinRslt)
     
   def up(self, p):
-    """ Devuelve una nueva figura poniendo la figura p bajo la figura actuaSl """
     new_img = p.img + self.img
     return Picture(new_img)
 
   def under(self, p):
     """ Devuelve una nueva figura poniendo la figura p sobre la
         figura actual """
-    new_img = self.img + p.img
-    return Picture(new_img)
+    
+
+    return Picture(underRslt)
   
   def horizontalRepeat(self, n):
     """ Devuelve una nueva figura repitiendo la figura actual al costado
