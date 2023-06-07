@@ -3,9 +3,7 @@ from chessPictures import *
 
 horse=knight
 horseblack=horse.negative()
-horsewhite=horseblack.negative()
-horse4=horseblack.join(horsewhite).up((horsewhite).join(horseblack))
-
+horse4=horseblack.join(horse).up((horse).join(horseblack))
 draw(horse4)
 
 
