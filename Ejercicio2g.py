@@ -26,8 +26,16 @@ while(i<7):
     else:
         pawns = pawns.join(square.under(pawn))
     i+=1    
-draw(pawns)
 
+#creando los equipos 
+whitePawns = pawns
+whiteAttack = attack
+whiteTeam = whiteAttack.up(whitePawns)
+blackTeam= whitePawns.negative().up(whiteAttack.negative())
+
+#creando chesstable y agregando whiteTeam, filax4 y blackTeam
+chessTable = whiteTeam.up(filax4).up(blackTeam)
+draw(chessTable)
 
 
 
