@@ -13,23 +13,25 @@ class Picture:
 
   def verticalMirror(self):
     """ Devuelve el espejo vertical de la imagen """
-    vertical = self.img[::-1]
+    vertical = []
+    for value in self.img:
+      vertical.append(value[::-1])
     return Picture(vertical)
   
   def horizontalMirror(self):
     """ Devuelve el espejo horizontal de la imagen """
-    horizontal = []
-    for value in self.img:
-      horizontal.append(value[::-1])
+    horizontal = self.img[::-1]
     return Picture(horizontal)
-
+    
   def negative(self):
     """Devuelve un negativo de la imagen"""
     neg_img = []
     for row in self.img:
-      neg_row = [self._invColor(pixel) for pixel in row]
-      neg_img.append(neg_row)
-    return Picture(neg_img)
+      rowBlack = ""
+      for pixel in row:
+        rowBlack += self._invColor(pixel)
+      neg_img.append(rowBlack)  
+    return Picture(neg_img)  
     
   def join(self, p):
     """ Devuelve una nueva figura poniendo la figura del argumento 
@@ -48,7 +50,15 @@ class Picture:
   def under(self, p):
     """ Devuelve una nueva figura poniendo la figura p sobre la
         figura actual """
-    
+    underRslt = []
+    for i in range(len(self.img)):
+      merged_row= ""
+      for j in range(len(self.img)):
+        if p.img[i][j]!=self.img[i][j] and p.img[i][j]!=" ":
+          merged_row += p.img[i][j]
+        else:
+          merged_row += self.img[i][j]
+      underRslt.append(merged_row)    
 
     return Picture(underRslt)
   
